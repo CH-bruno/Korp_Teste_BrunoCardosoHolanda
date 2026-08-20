@@ -47,7 +47,7 @@ export class ProdutoList implements OnInit {
         this.cdr.detectChanges();
       },
       error: () => {
-        this.snackBar.open('Erro ao carregar produtos.', 'Fechar', { duration: 4000 });
+        this.snackBar.open('Erro ao carregar produtos.', 'Fechar', { duration: 4000, panelClass: ['snackbar-erro'] });
         this.carregando = false;
         this.cdr.detectChanges();
       }
@@ -59,11 +59,11 @@ export class ProdutoList implements OnInit {
 
     this.produtoService.excluir(id).subscribe({
       next: () => {
-        this.snackBar.open('Produto excluído.', 'Fechar', { duration: 3000 });
+        this.snackBar.open('Produto excluído.', 'Fechar', { duration: 3000, panelClass: ['snackbar-sucesso'] });
         this.carregarProdutos();
       },
       error: () => {
-        this.snackBar.open('Erro ao excluir produto.', 'Fechar', { duration: 4000 });
+        this.snackBar.open('Erro ao excluir produto.', 'Fechar', { duration: 4000, panelClass: ['snackbar-erro'] });
       }
     });
   }

@@ -1,7 +1,7 @@
 <div class="produto-list-container">
   <div class="header">
     <h1>Produtos</h1>
-    <button mat-raised-button color="primary" routerLink="/produtos/novo">
+    <button mat-stroked-button color="primary" routerLink="/produtos/novo">
       <mat-icon>add</mat-icon>
       Novo Produto
     </button>
@@ -46,7 +46,10 @@
     </table>
 
     @if (produtos.length === 0) {
-      <p class="empty-state">Nenhum produto cadastrado.</p>
+      <div class="empty-state">
+        <mat-icon>inventory_2</mat-icon>
+        <p>Nenhum produto cadastrado.</p>
+      </div>
     }
   }
 </div>

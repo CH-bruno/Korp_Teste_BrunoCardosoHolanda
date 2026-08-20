@@ -52,7 +52,7 @@ export class ProdutoForm implements OnInit {
   carregarProduto(id: number): void {
     this.produtoService.buscarPorId(id).subscribe({
       next: (produto) => this.form.patchValue(produto),
-      error: () => this.snackBar.open('Erro ao carregar produto.', 'Fechar', { duration: 4000 })
+      error: () => this.snackBar.open('Erro ao carregar produto.', 'Fechar', { duration: 4000, panelClass: ['snackbar-erro'] })
     });
   }
 
@@ -63,18 +63,18 @@ export class ProdutoForm implements OnInit {
       const produtoAtualizado = { id: this.produtoId, ...this.form.value };
       this.produtoService.atualizar(this.produtoId, produtoAtualizado).subscribe({
         next: () => {
-          this.snackBar.open('Produto atualizado.', 'Fechar', { duration: 3000 });
+          this.snackBar.open('Produto atualizado.', 'Fechar', { duration: 3000, panelClass: ['snackbar-sucesso'] });
           this.router.navigate(['/produtos']);
         },
-        error: () => this.snackBar.open('Erro ao atualizar produto.', 'Fechar', { duration: 4000 })
+        error: () => this.snackBar.open('Erro ao atualizar produto.', 'Fechar', { duration: 4000, panelClass: ['snackbar-erro'] })
       });
     } else {
       this.produtoService.criar(this.form.value).subscribe({
         next: () => {
-          this.snackBar.open('Produto criado.', 'Fechar', { duration: 3000 });
+          this.snackBar.open('Produto criado.', 'Fechar', { duration: 3000, panelClass: ['snackbar-sucesso'] });
           this.router.navigate(['/produtos']);
         },
-        error: () => this.snackBar.open('Erro ao criar produto.', 'Fechar', { duration: 4000 })
+        error: () => this.snackBar.open('Erro ao criar produto.', 'Fechar', { duration: 4000, panelClass: ['snackbar-erro'] })
       });
     }
   }

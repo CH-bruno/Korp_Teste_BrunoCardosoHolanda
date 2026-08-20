@@ -42,18 +42,15 @@ namespace EstoqueService.Controllers
         public async Task<IActionResult> UpdateProduto(int id, Produto produto)
         {
             if (id != produto.Id) return BadRequest();
-            _context.Entry(produto).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await _context.Produtos.AnyAsync(p => p.Id == id))
-                    return NotFound();
-                throw;
-            }
+            var produtoExistente = await _context.Produtos.FindAsync(id);
+            if (produtoExistente == null) return NotFound();
+
+            produtoExistente.Codigo = produto.Codigo;
+            produtoExistente.Descricao = produto.Descricao;
+            produtoExistente.Saldo = produto.Saldo;
+
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }

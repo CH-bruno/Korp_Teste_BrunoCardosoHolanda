@@ -1,8 +1,17 @@
-<mat-toolbar color="primary">
-  <span>Korp Notas Fiscais</span>
+<mat-toolbar color="primary" class="app-toolbar">
+  <mat-icon class="toolbar-icon">receipt_long</mat-icon>
+  <span class="toolbar-title">Korp Notas Fiscais</span>
   <span class="spacer"></span>
-  <a mat-button routerLink="/produtos">Produtos</a>
-  <a mat-button routerLink="/notas">Notas Fiscais</a>
+  <a mat-button routerLink="/produtos" routerLinkActive="active-link">
+    <mat-icon>inventory_2</mat-icon>
+    Produtos
+  </a>
+  <a mat-button routerLink="/notas" routerLinkActive="active-link">
+    <mat-icon>description</mat-icon>
+    Notas Fiscais
+  </a>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<div class="page-container">
+  <router-outlet></router-outlet>
+</div>

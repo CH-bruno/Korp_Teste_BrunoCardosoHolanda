@@ -1,6 +1,12 @@
 .produto-form-container {
-  padding: 24px;
+  padding: 24px 0;
   max-width: 480px;
+
+  h1 {
+    font-weight: 500;
+    color: #333;
+    margin: 0 0 16px;
+  }
 
   .full-width {
     width: 100%;
