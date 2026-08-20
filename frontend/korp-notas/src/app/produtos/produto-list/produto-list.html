@@ -1,0 +1,52 @@
+<div class="produto-list-container">
+  <div class="header">
+    <h1>Produtos</h1>
+    <button mat-raised-button color="primary" routerLink="/produtos/novo">
+      <mat-icon>add</mat-icon>
+      Novo Produto
+    </button>
+  </div>
+
+  @if (carregando) {
+    <div class="loading">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  } @else {
+    <table mat-table [dataSource]="produtos" class="mat-elevation-z2">
+
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef>Código</th>
+        <td mat-cell *matCellDef="let produto">{{ produto.codigo }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="descricao">
+        <th mat-header-cell *matHeaderCellDef>Descrição</th>
+        <td mat-cell *matCellDef="let produto">{{ produto.descricao }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="saldo">
+        <th mat-header-cell *matHeaderCellDef>Saldo</th>
+        <td mat-cell *matCellDef="let produto">{{ produto.saldo }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let produto">
+          <button mat-icon-button [routerLink]="['/produtos', produto.id, 'editar']">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="excluir(produto.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="colunasExibidas"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunasExibidas;"></tr>
+    </table>
+
+    @if (produtos.length === 0) {
+      <p class="empty-state">Nenhum produto cadastrado.</p>
+    }
+  }
+</div>

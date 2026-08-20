@@ -1,0 +1,26 @@
+.produto-list-container {
+  padding: 24px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .loading {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 24px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
