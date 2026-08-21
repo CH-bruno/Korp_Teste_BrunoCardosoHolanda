@@ -127,10 +127,6 @@ Aplicação disponível em `http://localhost:4200`.
 
 O detalhamento técnico completo (ciclos de vida do Angular, uso de RxJS, bibliotecas, LINQ, tratamento de erros, etc.) está em [`Documentacao_tecnica_korp.pdf`](./Documentacao_tecnica_korp.pdf).
 
-## Vídeo de apresentação
-
-[Link do vídeo](#) *(adicionar após gravação)*
-
 ## Autor
 
 Bruno Cardoso Holanda
